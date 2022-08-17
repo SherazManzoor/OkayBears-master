@@ -19,7 +19,7 @@ galleryToastBtn.addEventListener('click', e => {
 window.addEventListener('DOMContentLoaded', event => {
   if (document.getElementById('bgMusic')) {
     const bgMusic = document.getElementById('bgMusic');
-    bgMusic.volume = 0.1;
+    bgMusic.volume = 0.5;
     bgMusic.play();
   }
 });
@@ -40,6 +40,8 @@ window.addEventListener('DOMContentLoaded', event => {
  * !====================================
  */
 jQuery(function () {
+  const musicOne = 'assets-global.website-files.com/622eead55797fc2865c24818/bg-music.mpeg';
+  const musicTwo = 'assets-global.website-files.com/622eead55797fc2865c24818/manifesto.mpeg';
   const minusSign = 'M0 10h24v4h-24z';
   const playSign = 'M3 22v-20l18 10-18 10z';
   const plusSign = 'M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z';
@@ -53,6 +55,28 @@ jQuery(function () {
   const soundPause = document.getElementById('soundPause');
   let soundPauseBtn = document.getElementById('soundPauseIcon');
   let signPath = document.getElementById('signPath');
+  const prevTrack = document.getElementById('prevTrack');
+  const nextTrack = document.getElementById('nextTrack');
+
+  prevTrack.addEventListener('click', () => {
+    if (audio.getAttribute('src') === musicOne) {
+      audio.setAttribute('src', musicTwo);
+      audio.play();
+    } else {
+      audio.setAttribute('src', musicOne);
+      audio.play();
+    }
+  })
+
+  nextTrack.addEventListener('click', () => {
+    if (audio.getAttribute('src') === musicOne) {
+      audio.setAttribute('src', musicTwo);
+      audio.play();
+    } else {
+      audio.setAttribute('src', musicOne);
+      audio.play();
+    }
+  })
 
   if (btnOpener && soundPause) {
     btnOpener.addEventListener('click', opener);
