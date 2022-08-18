@@ -74,13 +74,8 @@
   color: #1e7890;
 }
 
-figure.roadmap {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 1.25rem;
-  position: relative;
+.roadmap.roadmap__mobile {
+  display: none;
 }
 
 .roadmap + .okb-section {
@@ -364,8 +359,34 @@ audio:not([controls]) {
 
 @media only screen and (max-width: 768px) {
 
+  .home-hero,
+  .home-hero img {
+    width: 100%;
+  }
+
   .roadmap {
     padding-bottom: 0;
+  }
+
+  .roadmap.roadmap__mobile {
+    display: block;
+  }
+
+  .roadmap.roadmap__desktop {
+    display: none;
+  }
+
+  .roadmap__mobile .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .roadmap__mobile .buttons .btn {
+    margin: 0.25em;
   }
 
   .roadmap + .okb-section {

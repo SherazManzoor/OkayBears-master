@@ -58,25 +58,24 @@ jQuery(function () {
   const prevTrack = document.getElementById('prevTrack');
   const nextTrack = document.getElementById('nextTrack');
 
-  prevTrack.addEventListener('click', () => {
-    if (audio.getAttribute('src') === musicOne) {
-      audio.setAttribute('src', musicTwo);
-      audio.play();
-    } else {
-      audio.setAttribute('src', musicOne);
-      audio.play();
+  if(prevTrack && nextTrack) {
+    const changeTrack = () => {
+      if (audio.getAttribute('src') === musicOne) {
+        audio.setAttribute('src', musicTwo);
+        audio.play();
+      } else {
+        audio.setAttribute('src', musicOne);
+        audio.play();
+      }
     }
-  })
-
-  nextTrack.addEventListener('click', () => {
-    if (audio.getAttribute('src') === musicOne) {
-      audio.setAttribute('src', musicTwo);
-      audio.play();
-    } else {
-      audio.setAttribute('src', musicOne);
-      audio.play();
-    }
-  })
+    prevTrack.addEventListener('click', () => {
+      changeTrack();
+    });
+  
+    nextTrack.addEventListener('click', () => {
+      changeTrack();
+    })
+  }
 
   if (btnOpener && soundPause) {
     btnOpener.addEventListener('click', opener);
